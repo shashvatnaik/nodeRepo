@@ -5,6 +5,7 @@ const express =require('express');
 const bluebird = require('bluebird');
 const fs = bluebird.promisifyAll(require('fs'));
 const hbs = require('hbs');
+const port = process.env.PORT || 1212;
 
 let app = express();
 app.use(express.static('/home/lcom57/shashvat/'));
@@ -16,7 +17,7 @@ app.use((req,res,next)=>{
 });
 app.get('/',(req,res)=>{
     res.render('gg.hbs',{name:'shashvat'});
-}).listen(1212);
+}).listen(port);
 app.get('/bad',(req,res)=>{
     res.render('bad-req.hbs');
 });
